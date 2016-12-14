@@ -1,7 +1,8 @@
 <?xml-model href="http://schemas.seadatanet.org/Standards-Software/Metadata-formats/SDN2_CSR_ISO19139_3.0.0.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
 
 -<gmi:MI_Metadata xsi:schemaLocation="http://www.seadatanet.org http://schemas.seadatanet.org/Standards-Software/Metadata-formats/SDN2_CSR_ISO19139_3.0.0.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:gml="http://www.opengis.net/gml" xmlns:sdn="http://www.seadatanet.org" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:gmx="http://www.isotc211.org/2005/gmx" xmlns:gts="http://www.isotc211.org/2005/gts" xmlns:gco="http://www.isotc211.org/2005/gco" xmlns:srv="http://www.isotc211.org/2005/srv" xmlns:gmi="http://www.isotc211.org/2005/gmi" xmlns:gmd="http://www.isotc211.org/2005/gmd">
-    <gmd:fileIdentifier>
+  
+<gmd:fileIdentifier>
       <gco:CharacterString>urn:SDN:CSR:LOCAL:[% identifier %]</gco:CharacterString>
     </gmd:fileIdentifier>
 
@@ -303,7 +304,7 @@
 <gmd:descriptiveKeywords>
 <gmd:MD_Keywords>
 <gmd:keyword>
-<sdn:SDN_CountryCode codeSpace="SeaDataNet" codeListValue='" [% departure_country_code %]"' codeList="http://vocab.nerc.ac.uk/isoCodelists/sdnCodelists/cdicsrCodeList.xml#SDN_CountryCode">[% departure_country %]</sdn:SDN_CountryCode>
+[% departure_country1 %]
 </gmd:keyword>
 <gmd:type>
 <gmd:MD_KeywordTypeCode codeSpace="SeaDataNet" codeListValue="departure_country" codeList="http://vocab.nerc.ac.uk/isoCodelists/sdnCodelists/gmxCodeLists.xml#MD_KeywordTypeCode">departure_country</gmd:MD_KeywordTypeCode>
@@ -343,7 +344,7 @@
 <gmd:descriptiveKeywords>
 <gmd:MD_Keywords>
 <gmd:keyword>
-<sdn:SDN_CountryCode codeSpace="SeaDataNet" codeListValue="popup('[% arrival_country_code | html %]')"  codeList="http://vocab.nerc.ac.uk/isoCodelists/sdnCodelists/cdicsrCodeList.xml#SDN_CountryCode">[% arrival_country %]</sdn:SDN_CountryCode>
+[% arrival_country1 %]
 </gmd:keyword>
 <gmd:type>
 <gmd:MD_KeywordTypeCode codeSpace="SeaDataNet" codeListValue="arrival_country" codeList="http://vocab.nerc.ac.uk/isoCodelists/sdnCodelists/gmxCodeLists.xml#MD_KeywordTypeCode">arrival_country</gmd:MD_KeywordTypeCode>

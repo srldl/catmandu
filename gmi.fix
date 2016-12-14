@@ -1,10 +1,47 @@
-move_field("people.organisation","title")
+#Exclude of draft is yes
+if all_match(draft,'yes')
+   reject()
+end
+#Exclude if this is not a cruise
+reject all_match(type,'expedition')
+#Exclude if not ship is Lance
+#Select all_match("platforms.name","(.*)Lance")
+#If not @departure_placename reject
+unless exists(@departure_placename)
+  reject()
+end
+#If not @return_placename reject
+unless exists(@return_placename)
+  reject()
+end
+#If not start_date reject
+unless exists(start_date)
+  reject()
+end
+#If not end_date reject
+unless exists(end_date)
+  reject()
+end
+#If not bbox reject
+unless exists(locations)
+  reject()
+end
+#If not ocean reject
+
+#Rearrange some field
+move_field("id","identifier")
 move_field("created","date")
 move_field("summary","description")
 move_field("@departure_placename","departure_placename")
 move_field("@return_placename","return_placename")
 move_field("code","title")
 move_field("people","source")
-move_field("id","identifier")
 remove_field("_rev")
 remove_field("_id")
+add_field("departure_country", "Norway")
+add_field("departure_country_code","NO")
+add_field("arrival_country","Norway")
+add_field("arrival_country_code","NO")
+add_field("departure_country1", '<sdn:SDN_CountryCode codeSpace="SeaDataNet" codeListValue="NO" codeList="http://vocab.nerc.ac.uk/isoCodelists/sdnCodelists/cdicsrCodeList.xml#SDN_CountryCode">Norway</sdn:SDN_CountryCode>')
+add_field("arrival_country1",'<sdn:SDN_CountryCode codeSpace="SeaDataNet" codeListValue="NO"  codeList="http://vocab.nerc.ac.uk/isoCodelists/sdnCodelists/cdicsrCodeList.xml#SDN_CountryCode">"Norway"</sdn:SDN_CountryCode>')
+
