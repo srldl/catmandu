@@ -23,21 +23,29 @@ unless exists(end_date)
   reject()
 end
 #If not bbox reject
-unless exists(locations)
+unless exists(locations.0.north)
   reject()
 end
-#If not ocean reject
+
+#If not oceans is there reject
+#do list(path:locations.places.predefined_area, var:c)
+   #if predefined_area is Arctic Ocean
+      # reject()
+  # end
+#end
 
 #Rearrange some field
-move_field("id","identifier")
+#move_field("id","identifier")
+#created, start and end date should be yyyy-mm-dd according to spec
+replace_all(created,"T(.*)Z$","")
+replace_all(start_date,"T(.*)Z$","")
+replace_all(end_date,"T(.*)Z$","")
 move_field("created","date")
 move_field("summary","description")
 move_field("@departure_placename","departure_placename")
 move_field("@return_placename","return_placename")
 move_field("code","title")
 move_field("people","source")
-remove_field("_rev")
-remove_field("_id")
 add_field("departure_country", "Norway")
 add_field("departure_country_code","NO")
 add_field("arrival_country","Norway")

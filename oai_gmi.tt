@@ -1,9 +1,9 @@
 <?xml-model href="http://schemas.seadatanet.org/Standards-Software/Metadata-formats/SDN2_CSR_ISO19139_3.0.0.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
 
--<gmi:MI_Metadata xsi:schemaLocation="http://www.seadatanet.org http://schemas.seadatanet.org/Standards-Software/Metadata-formats/SDN2_CSR_ISO19139_3.0.0.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:gml="http://www.opengis.net/gml" xmlns:sdn="http://www.seadatanet.org" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:gmx="http://www.isotc211.org/2005/gmx" xmlns:gts="http://www.isotc211.org/2005/gts" xmlns:gco="http://www.isotc211.org/2005/gco" xmlns:srv="http://www.isotc211.org/2005/srv" xmlns:gmi="http://www.isotc211.org/2005/gmi" xmlns:gmd="http://www.isotc211.org/2005/gmd">
+<gmi:MI_Metadata xsi:schemaLocation="http://www.seadatanet.org http://schemas.seadatanet.org/Standards-Software/Metadata-formats/SDN2_CSR_ISO19139_3.0.0.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:gml="http://www.opengis.net/gml" xmlns:sdn="http://www.seadatanet.org" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:gmx="http://www.isotc211.org/2005/gmx" xmlns:gts="http://www.isotc211.org/2005/gts" xmlns:gco="http://www.isotc211.org/2005/gco" xmlns:srv="http://www.isotc211.org/2005/srv" xmlns:gmi="http://www.isotc211.org/2005/gmi" xmlns:gmd="http://www.isotc211.org/2005/gmd">
   
 <gmd:fileIdentifier>
-      <gco:CharacterString>urn:SDN:CSR:LOCAL:[% identifier %]</gco:CharacterString>
+      <gco:CharacterString>urn:SDN:CSR:LOCAL:[% _id %]</gco:CharacterString>
     </gmd:fileIdentifier>
 
     <gmd:language>
@@ -23,7 +23,7 @@
 </gmd:hierarchyLevelName>
 
 <gmd:contact><gmd:CI_ResponsibleParty>
-<gmd:organisationName><sdn:SDN_EDMOCode codeSpace="SeaDataNet" codeListValue="486" codeList="http://seadatanet.maris2.nl/isocodelists/sdncodelists/edmo-edmerp-Codelists.xml#SDN_EDMOCode">Norwegian Polar Institute</sdn:SDN_EDMOCode></gmd:organisationName>
+<gmd:organisationName><sdn:SDN_EDMOCode codeSpace="SeaDataNet" codeListValue="1349" codeList="http://seadatanet.maris2.nl/isocodelists/sdncodelists/edmo-edmerp-Codelists.xml#SDN_EDMOCode">Norwegian Polar Institute</sdn:SDN_EDMOCode></gmd:organisationName>
 <gmd:contactInfo>
 <gmd:CI_Contact>
 <gmd:phone><gmd:CI_Telephone><gmd:voice>
@@ -45,7 +45,7 @@
 <gco:CharacterString>data@npolar.no</gco:CharacterString>
 </gmd:electronicMailAddress></gmd:CI_Address></gmd:address>
 <gmd:onlineResource>
-<gmd:CI_OnlineResource><gmd:linkage><gmd:URL>http://www.npolar.no</gmd:URL>
+<gmd:CI_OnlineResource><gmd:linkage><gmd:URL>http://data.npolar.no</gmd:URL>
 </gmd:linkage></gmd:CI_OnlineResource></gmd:onlineResource></gmd:CI_Contact>
 </gmd:contactInfo>
 <gmd:role>
@@ -70,7 +70,7 @@
 <gco:CharacterString>[% title %]</gco:CharacterString>
 </gmd:title>
 <gmd:alternateTitle>
-<gco:CharacterString>[% identifier %]</gco:CharacterString>
+<gco:CharacterString>[% ident %]</gco:CharacterString>
 </gmd:alternateTitle>
 <gmd:date>
 <gmd:CI_Date>
@@ -85,7 +85,7 @@
 <gmd:identifier>
 <gmd:MD_Identifier>
 <gmd:code>
-<gco:CharacterString>urn:SDN:CSR:LOCAL:[% identifier %]</gco:CharacterString>
+<gco:CharacterString>urn:SDN:CSR:LOCAL:[% ident %]</gco:CharacterString>
 </gmd:code>
 </gmd:MD_Identifier>
 </gmd:identifier>
@@ -506,7 +506,6 @@
 </gmd:descriptiveKeywords>
 
 
-
 <gmd:resourceConstraints>
 <gmd:MD_Constraints>
 <gmd:useLimitation>
@@ -644,7 +643,7 @@
 <gmi:acquisitionInformation>
 <gmi:MI_AcquisitionInformation>
 <gmi:operation>
-<gmi:MI_Operation id="urn.SDN.CSR.LOCAL.[% identifier %]">
+<gmi:MI_Operation id="urn.SDN.CSR.LOCAL.[% _id %]">
 <gmi:description>
 <gco:CharacterString>[% description %]</gco:CharacterString>
 </gmi:description>
@@ -654,7 +653,7 @@
 <gco:CharacterString>[% title %]</gco:CharacterString>
 </gmd:title>
 <gmd:alternateTitle>
-<gco:CharacterString>[% identifier %]</gco:CharacterString>
+<gco:CharacterString>[% _id %]</gco:CharacterString>
 </gmd:alternateTitle>
 <gmd:date>
 <gmd:CI_Date>
