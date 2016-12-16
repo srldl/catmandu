@@ -2,6 +2,7 @@
 if all_match(draft,'yes')
    reject()
 end
+
 #Exclude if this is not a cruise
 reject all_match(type,'expedition')
 #Exclude if not ship is Lance
@@ -34,22 +35,112 @@ end
   # end
 #end
 
-#Rearrange some field
-#move_field("id","identifier")
 #created, start and end date should be yyyy-mm-dd according to spec
 replace_all(created,"T(.*)Z$","")
 replace_all(start_date,"T(.*)Z$","")
 replace_all(end_date,"T(.*)Z$","")
+
+#rearrange some fields
 move_field("created","date")
 move_field("summary","description")
-move_field("@departure_placename","departure_placename")
-move_field("@return_placename","return_placename")
 move_field("code","title")
 move_field("people","source")
-add_field("departure_country", "Norway")
-add_field("departure_country_code","NO")
-add_field("arrival_country","Norway")
-add_field("arrival_country_code","NO")
-add_field("departure_country1", '<sdn:SDN_CountryCode codeSpace="SeaDataNet" codeListValue="NO" codeList="http://vocab.nerc.ac.uk/isoCodelists/sdnCodelists/cdicsrCodeList.xml#SDN_CountryCode">Norway</sdn:SDN_CountryCode>')
-add_field("arrival_country1",'<sdn:SDN_CountryCode codeSpace="SeaDataNet" codeListValue="NO"  codeList="http://vocab.nerc.ac.uk/isoCodelists/sdnCodelists/cdicsrCodeList.xml#SDN_CountryCode">"Norway"</sdn:SDN_CountryCode>')
+
+move_field("@departure_placename","departure_placename")
+move_field("@return_placename","arrival_placename")
+add_field("departure_country","Norway")
+add_field("arrival_country","norway")
+
+#Longyearbyen
+if all_match(departure_placename, 'Longyearbyen')
+    add_field("departure_placename",'<sdn:SDN_PortCode codeSpace="SeaDataNet" codeListValue="BSH120" codeList="http://vocab.nerc.ac.uk/isoCodelists/sdnCodelists/cdicsrCodeList.xml#SDN_PortCode">Longyearbyen</sdn:SDN_PortCode>')
+   add_field("departure_country", '<sdn:SDN_CountryCode codeSpace="SeaDataNet" codeListValue="NO" codeList="http://vocab.nerc.ac.uk/isoCodelists/sdnCodelists/cdicsrCodeList.xml#SDN_CountryCode">Norway</sdn:SDN_CountryCode>')
+end
+
+if all_match(arrival_placename, 'Longyearbyen')
+     add_field("arrival_placename",'<sdn:SDN_PortCode codeSpace="SeaDataNet" codeListValue="BSH120" codeList="http://vocab.nerc.ac.uk/isoCodelists/sdnCodelists/cdicsrCodeList.xml#SDN_PortCode">Longyearbyen</sdn:SDN_PortCode>')
+    add_field("arrival_country",'<sdn:SDN_CountryCode codeSpace="SeaDataNet" codeListValue="NO"  codeList="http://vocab.nerc.ac.uk/isoCodelists/sdnCodelists/cdicsrCodeList.xml#SDN_CountryCode">"Norway"</sdn:SDN_CountryCode>')
+end
+
+#Cape Town
+if all_match(departure_placename, 'Cape Town')
+   add_field("departure_placename",'<sdn:SDN_PortCode codeSpace="SeaDataNet" codeListValue="BSH39" codeList="http://vocab.nerc.ac.uk/isoCodelists/sdnCodelists/cdicsrCodeList.xml#SDN_PortCode">Cape Town</sdn:SDN_PortCode>')
+   add_field("departure_country", '<sdn:SDN_CountryCode codeSpace="SeaDataNet" codeListValue="ZA" codeList="http://vocab.nerc.ac.uk/isoCodelists/sdnCodelists/cdicsrCodeList.xml#SDN_CountryCode">South Africa</sdn:SDN_CountryCode>')
+end
+
+if all_match(arrival_placename, 'Cape Town')
+     add_field("arrival_placename",'<sdn:SDN_PortCode codeSpace="SeaDataNet" codeListValue="BSH39" codeList="http://vocab.nerc.ac.uk/isoCodelists/sdnCodelists/cdicsrCodeList.xml#SDN_PortCode">Cape Town</sdn:SDN_PortCode>')
+    add_field("arrival_country",'<sdn:SDN_CountryCode codeSpace="SeaDataNet" codeListValue="ZA"  codeList="http://vocab.nerc.ac.uk/isoCodelists/sdnCodelists/cdicsrCodeList.xml#SDN_CountryCode">South Africa</sdn:SDN_CountryCode>')
+end
+
+#Troll
+if all_match(departure_placename, 'Troll')
+   add_field("departure_placename",'<sdn:SDN_PortCode codeSpace="SeaDataNet" codeListValue="NQAQ" codeList="http://vocab.nerc.ac.uk/isoCodelists/sdnCodelists/cdicsrCodeList.xml#SDN_PortCode">Dronning Maud Land</sdn:SDN_PortCode>')
+   add_field("departure_country1", '<sdn:SDN_CountryCode codeSpace="SeaDataNet" codeListValue="AQ" codeList="http://vocab.nerc.ac.uk/isoCodelists/sdnCodelists/cdicsrCodeList.xml#SDN_CountryCode">Antarctica</sdn:SDN_CountryCode>')
+end
+
+if all_match(arrival_placename, 'Troll')
+     add_field("arrival_placename",'<sdn:SDN_PortCode codeSpace="SeaDataNet" codeListValue="NQAQ" codeList="http://vocab.nerc.ac.uk/isoCodelists/sdnCodelists/cdicsrCodeList.xml#SDN_PortCode">Dronning Maud Land</sdn:SDN_PortCode>')
+    add_field("arrival_country1",'<sdn:SDN_CountryCode codeSpace="SeaDataNet" codeListValue="AQ"  codeList="http://vocab.nerc.ac.uk/isoCodelists/sdnCodelists/cdicsrCodeList.xml#SDN_CountryCode">Antarctica</sdn:SDN_CountryCode>')
+end
+
+#Tromsø
+if all_match(departure_placename, 'Tromsø')
+   add_field("departure_placename",'<sdn:SDN_PortCode codeSpace="SeaDataNet" codeListValue="BSH210" codeList="http://vocab.nerc.ac.uk/isoCodelists/sdnCodelists/cdicsrCodeList.xml#SDN_PortCode">Tromso</sdn:SDN_PortCode>')
+   add_field("departure_country1", '<sdn:SDN_CountryCode codeSpace="SeaDataNet" codeListValue="NO" codeList="http://vocab.nerc.ac.uk/isoCodelists/sdnCodelists/cdicsrCodeList.xml#SDN_CountryCode">Norway</sdn:SDN_CountryCode>')
+end
+
+if all_match(arrival_placename, 'Tromsø')
+     add_field("arrival_placename",'<sdn:SDN_PortCode codeSpace="SeaDataNet" codeListValue="BSH210" codeList="http://vocab.nerc.ac.uk/isoCodelists/sdnCodelists/cdicsrCodeList.xml#SDN_PortCode">Tromso</sdn:SDN_PortCode>')
+    add_field("arrival_country1",'<sdn:SDN_CountryCode codeSpace="SeaDataNet" codeListValue="NO"  codeList="http://vocab.nerc.ac.uk/isoCodelists/sdnCodelists/cdicsrCodeList.xml#SDN_CountryCode">Norway</sdn:SDN_CountryCode>')
+end
+
+#Ny-Ålesund
+if all_match(departure_placename, 'Ny-Ålesund')
+   add_field("departure_placename",'<sdn:SDN_PortCode codeSpace="SeaDataNet" codeListValue="BSH5493" codeList="http://vocab.nerc.ac.uk/isoCodelists/sdnCodelists/cdicsrCodeList.xml#SDN_PortCode">Ny-Alesund</sdn:SDN_PortCode>')
+   add_field("departure_country1", '<sdn:SDN_CountryCode codeSpace="SeaDataNet" codeListValue="NO" codeList="http://vocab.nerc.ac.uk/isoCodelists/sdnCodelists/cdicsrCodeList.xml#SDN_CountryCode">Norway</sdn:SDN_CountryCode>')
+end
+
+if all_match(arrival_placename, 'Ny-Ålesund')
+     add_field("arrival_placename",'<sdn:SDN_PortCode codeSpace="SeaDataNet" codeListValue="BSH5493" codeList="http://vocab.nerc.ac.uk/isoCodelists/sdnCodelists/cdicsrCodeList.xml#SDN_PortCode">Ny-Alesund</sdn:SDN_PortCode>')
+    add_field("arrival_country1",'<sdn:SDN_CountryCode codeSpace="SeaDataNet" codeListValue="NO"  codeList="http://vocab.nerc.ac.uk/isoCodelists/sdnCodelists/cdicsrCodeList.xml#SDN_CountryCode">Norway</sdn:SDN_CountryCode>')
+end
+
+#Set ship definition - for now just Lance
+add_field("ship","Lance")
+
+
+if all_match(platforms.*.name,"Lance")
+   add_field("ship",'<sdn:SDN_PlatformCode codeSpace="SeaDataNet" codeListValue="49L2" codeList="http://vocab.nerc.ac.uk/isoCodelists/sdnCodelists/cdicsrCodeList.xml#SDN_PlatformCode">Lance</sdn:SDN_PlatformCode>')
+end
+
+#Using Atlantic Ocean as default
+add_field("placename_area",'<sdn:SDN_WaterBodyCode codeSpace="SeaDataNet" codeListValue="SVX00005" codeList="http://vocab.nerc.ac.uk/isoCodelists/sdnCodelists/cdicsrCodeList.xml#SDN_WaterBodyCode">Arctic Ocean</sdn:SDN_WaterBodyCode>')
+
+
+#Match Arctic Ocean?
+if any_match(locations.*.places.*.predefined_area,"Arctic Ocean")
+add_field("placename_area",'<sdn:SDN_WaterBodyCode codeSpace="SeaDataNet" codeListValue="9" codeList="http://vocab.nerc.ac.uk/isoCodelists/sdnCodelists/cdicsrCodeList.xml#SDN_WaterBodyCode">Arctic Ocean</sdn:SDN_WaterBodyCode>')
+end
+
+#Match Southern Ocean?
+if any_match(locations.*.places.*.predefined_area,"Southern Ocean")
+   add_field("placename_area",'<sdn:SDN_WaterBodyCode codeSpace="SeaDataNet" codeListValue="10" codeList="http://vocab.nerc.ac.uk/isoCodelists/sdnCodelists/cdicsrCodeList.xml#SDN_WaterBodyCode">Southern Ocean</sdn:SDN_WaterBodyCode>')
+end
+
+#Match Barents Sea?
+if  any_match(locations.*.places.*.predefined_area,"Barents Sea North")
+   add_field("placename_area",'<sdn:SDN_WaterBodyCode codeSpace="SeaDataNet" codeListValue="9_4" codeList="http://vocab.nerc.ac.uk/isoCodelists/sdnCodelists/cdicsrCodeList.xml#SDN_WaterBodyCode">Barents Sea North</sdn:SDN_WaterBodyCode>')
+end
+
+#Match Fram Strait?
+if any_match(locations.*.places.*.predefined_area,"Fram Strait")
+   add_field("placename_area",'<sdn:SDN_WaterBodyCode codeSpace="SeaDataNet" codeListValue="FRAM" codeList="http://vocab.nerc.ac.uk/isoCodelists/sdnCodelists/cdicsrCodeList.xml#SDN_WaterBodyCode">Fram Strait</sdn:SDN_WaterBodyCode>')
+end
+
+#Set coord
+move_field("locations.0.north","north")
+move_field("locations.0.south","south")
+move_field("locations.0.west","west")
+move_field("locations.0.east","east")
 
