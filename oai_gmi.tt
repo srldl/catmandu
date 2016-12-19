@@ -70,7 +70,7 @@
 <gco:CharacterString>[% title %]</gco:CharacterString>
 </gmd:title>
 <gmd:alternateTitle>
-<gco:CharacterString>[% ident %]</gco:CharacterString>
+<gco:CharacterString>[% _id %]</gco:CharacterString>
 </gmd:alternateTitle>
 <gmd:date>
 <gmd:CI_Date>
@@ -85,7 +85,7 @@
 <gmd:identifier>
 <gmd:MD_Identifier>
 <gmd:code>
-<gco:CharacterString>urn:SDN:CSR:LOCAL:[% ident %]</gco:CharacterString>
+<gco:CharacterString>urn:SDN:CSR:LOCAL:[% _id %]</gco:CharacterString>
 </gmd:code>
 </gmd:MD_Identifier>
 </gmd:identifier>
@@ -304,7 +304,7 @@
 <gmd:descriptiveKeywords>
 <gmd:MD_Keywords>
 <gmd:keyword>
-[% departure_country1 %]
+[% departure_country %]
 </gmd:keyword>
 <gmd:type>
 <gmd:MD_KeywordTypeCode codeSpace="SeaDataNet" codeListValue="departure_country" codeList="http://vocab.nerc.ac.uk/isoCodelists/sdnCodelists/gmxCodeLists.xml#MD_KeywordTypeCode">departure_country</gmd:MD_KeywordTypeCode>
@@ -344,7 +344,7 @@
 <gmd:descriptiveKeywords>
 <gmd:MD_Keywords>
 <gmd:keyword>
-[% arrival_country1 %]
+[% arrival_country %]
 </gmd:keyword>
 <gmd:type>
 <gmd:MD_KeywordTypeCode codeSpace="SeaDataNet" codeListValue="arrival_country" codeList="http://vocab.nerc.ac.uk/isoCodelists/sdnCodelists/gmxCodeLists.xml#MD_KeywordTypeCode">arrival_country</gmd:MD_KeywordTypeCode>
@@ -566,8 +566,8 @@
 <gmd:EX_TemporalExtent>
 <gmd:extent>
 <gml:TimePeriod gml:id="mik3.3">
-<gml:beginPosition>[% start_date %]</gml:beginPosition>
-<gml:endPosition>[% end_date %]</gml:endPosition>
+<gml:beginPosition>[% start_date %]T00:00:00</gml:beginPosition>
+<gml:endPosition>[% end_date %]T00:00:00</gml:endPosition>
 </gml:TimePeriod>
 </gmd:extent>
 </gmd:EX_TemporalExtent>
@@ -678,7 +678,7 @@
 <gmi:MI_SequenceCode codeListValue="start" codeList="http://www.isotc211.org/2005/resources/Codelist/gmiCodelists.xml#MI_SequenceCode">start</gmi:MI_SequenceCode>
 </gmi:sequence>
 <gmi:time>
-<gco:DateTime>[% start_date %]</gco:DateTime>
+<gco:DateTime>[% start_date %]T00:00:00</gco:DateTime>
 </gmi:time>
 </gmi:MI_Event>
 </gmi:significantEvent>
@@ -701,7 +701,7 @@
 <gmi:MI_SequenceCode codeListValue="end" codeList="http://www.isotc211.org/2005/resources/Codelist/gmiCodelists.xml#MI_SequenceCode">end</gmi:MI_SequenceCode>
 </gmi:sequence>
 <gmi:time>
-<gco:DateTime>[% end_date %]</gco:DateTime>
+<gco:DateTime>[% end_date %]T00:00:00</gco:DateTime>
 </gmi:time>
 </gmi:MI_Event>
 </gmi:significantEvent>

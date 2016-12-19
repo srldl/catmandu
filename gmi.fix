@@ -39,6 +39,7 @@ end
 replace_all(created,"T(.*)Z$","")
 replace_all(start_date,"T(.*)Z$","")
 replace_all(end_date,"T(.*)Z$","")
+replace_all(updated,"T(.*)Z$","")
 
 #rearrange some fields
 move_field("created","date")
