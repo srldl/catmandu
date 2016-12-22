@@ -519,7 +519,7 @@
 <gmd:MD_RestrictionCode codeListValue="otherRestrictions" codeList="http://vocab.nerc.ac.uk/isoCodelists/sdnCodelists/gmxCodeLists.xml#MD_RestrictionCode">otherRestrictions</gmd:MD_RestrictionCode>
 </gmd:accessConstraints>
 <gmd:otherConstraints>
-<gmx:Anchor xlink:href="http://www.seadatanet.org/urnurl/SDN:L08::RS">by negotiation</gmx:Anchor>
+<gmx:Anchor xlink:href="http://www.seadatanet.org/urnurl/SDN:L08::RS">[% availability %]</gmx:Anchor>
 </gmd:otherConstraints>
 </gmd:MD_LegalConstraints>
 </gmd:resourceConstraints>
